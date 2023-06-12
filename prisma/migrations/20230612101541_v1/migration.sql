@@ -5,6 +5,7 @@ CREATE TABLE "User" (
     "updatedAt" TIMESTAMP(3) NOT NULL,
     "email" TEXT NOT NULL,
     "hashedPassword" TEXT NOT NULL,
+    "nickName" TEXT,
 
     CONSTRAINT "User_pkey" PRIMARY KEY ("id")
 );
