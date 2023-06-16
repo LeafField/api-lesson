@@ -3,11 +3,7 @@ import { TodoController } from './todo.controller';
 import { TodoService } from './todo.service';
 import { CreateTaskDto } from './dto/create-task.dto';
 import { UpdateTaskDto } from './dto/update-task.dto';
-import { Task } from '@prisma/client';
-
-interface ExReq extends Request {
-  user: { id: number };
-}
+import { Task, User } from '@prisma/client';
 
 describe('認証が必要なコントローラーのテストのテスト', () => {
   let todoController: TodoController;
@@ -34,7 +30,6 @@ describe('認証が必要なコントローラーのテストのテスト', () =
         },
       ];
       jest.spyOn(todoService, 'getTasks').mockResolvedValue(mockTask);
-      const req: ExReq = { user: { id: 1 } };
       expect(await todoController.getTask()).toBe(mockTask);
     });
   });
