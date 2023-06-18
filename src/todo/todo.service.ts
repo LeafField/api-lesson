@@ -21,7 +21,7 @@ export class TodoService {
     });
   }
 
-  async createTask(userId: number, dto: CreateTaskDto) {
+  async createTask(userId: number, dto: CreateTaskDto): Promise<Task> {
     const task = await this.prisma.task.create({
       data: {
         userId,

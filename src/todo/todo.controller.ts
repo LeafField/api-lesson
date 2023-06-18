@@ -38,7 +38,7 @@ export class TodoController {
   }
 
   @Post()
-  createTask(@Req() req: Request, @Body() dto: CreateTaskDto) {
+  createTask(@Req() req: Request, @Body() dto: CreateTaskDto): Promise<Task> {
     return this.todoService.createTask(req.user.id, dto);
   }
 
