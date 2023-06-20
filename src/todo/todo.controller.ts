@@ -24,6 +24,7 @@ import { Task } from '@prisma/client';
 export class TodoController {
   constructor(private readonly todoService: TodoService) {}
 
+  @UseGuards(AuthGuard('jwt'))
   @Get()
   getTask(@Req() req: Request): Promise<Task[]> {
     return this.todoService.getTasks(req.user.id);
